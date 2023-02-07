@@ -18,8 +18,8 @@ def create_post(request, *args, **kwargs):
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect("all_post")
+            post = form.save()
+            return redirect("get_post", post.id)
         else:
             return render(
                 request=request,
