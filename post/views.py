@@ -38,7 +38,7 @@ def update_post(request, pk, *args, **kwargs):
     form = PostForm(request.POST or None, instance=obj)
     if form.is_valid():
         form.save()
-        return redirect("post", pk)
+        return redirect("get_post", pk)
     return render(
         request=request,
         template_name="post/update.html",
